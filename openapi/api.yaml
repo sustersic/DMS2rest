@@ -21,6 +21,7 @@ security:
 
 servers:
   - url: http://localhost:3000
+  - url: https://jansvm.westeurope.cloudapp.azure.com
   
 tags:
   - name: Sample dataset

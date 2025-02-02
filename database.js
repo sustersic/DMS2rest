@@ -38,7 +38,22 @@ const addOneUser = async (username, password) =>
 const addData = ({id, Firstname, Surname, userid}) =>
     sendQuery(`INSERT INTO data (id, Firstname, Surname, userid) VALUES (?, ?, ?, ?)`, true, id, Firstname, Surname, userid);
 
+const getUsersRecords = async () => {
+    const res = await sendQuery(`CALL users_records`);
+    console.log(res);
+    return[0];
+
+const populateTable = async (lineCount) =>
+    sendQuery(`CALL fillTable(?)`, false, lineCount);
+
+//const getUsersRecords = () =>
+ //   sendQuery(`SELECT * from users_records`);
+
+
 /*
+const getUsersRecords = () =>
+    sendQuery(`SELECT a.username, count(b.userid) AS 'Users records' FROM users AS a JOIN data AS b ON a.username = b.userid GROUP BY a.username`);
+
 const getUserByName = (username) => 
     sendQuery(`SELECT * FROM users WHERE username = ?`, false, username);
 
@@ -46,6 +61,7 @@ const deleteData = (id, userid) =>
     sendQuery(`DELETE FROM data WHERE id = ? AND userid = ?`, true, id, userid);
 */
 export {
+    getUsersRecords,
     addOneUser,
     getAllUsers,
     findOneUser,
@@ -53,6 +69,7 @@ export {
     getDataById,
     addData,
     logonUsers,
+    populateTable,
 //    getUserByName,
 //    deleteData,
 }

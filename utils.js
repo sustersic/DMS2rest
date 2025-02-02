@@ -12,7 +12,7 @@ const verifyToken = (req, res, next) => {
             const isValid = (decodedToken.exp-now) >= 0 ? true : false;
             if(isValid) {
                 const user = logonUsers.get(decodedToken.username)
-                if(user.token = token) {
+                if(user?.token === token) {
                     next()
                 } else
                     res.status(401).json({"error": "Unauthorized"})

@@ -1,11 +1,13 @@
 import { createPool } from "mariadb"
 
 const pool = createPool({
-    host: "maria.northeurope.cloudapp.azure.com",
-    user: "testi",
+    host: "localhost",
+    user: "jan",
     port: 3306,
-    password: "mariadb1",
-    database: "adbms",
+    password: "susi2",
+    database: "jansDatabase",
+    insertIdAsNumber: true,
+    bigIntAsNumber: true,
 })
 
 export default Object.freeze({
