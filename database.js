@@ -42,6 +42,7 @@ const getUsersRecords = async () => {
     const res = await sendQuery(`CALL users_records`);
     console.log(res);
     return[0];
+}
 
 const populateTable = async (lineCount) =>
     sendQuery(`CALL fillTable(?)`, false, lineCount);
